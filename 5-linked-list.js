@@ -27,6 +27,25 @@ class LinkedList {
       this.head = newElement;
     }
   }
+
+  toArray() {
+    const elements = [];
+
+    let currentElement = this.head;
+
+    while (currentElement) {
+      elements.push(currentElement);
+      currentElement = currentElement.next;
+    }
+
+    return elements;
+  }
 }
 
 const linkedList = new LinkedList();
+
+linkedList.append(1);
+linkedList.append("s");
+linkedList.append(true);
+
+console.log(linkedList.toArray());
