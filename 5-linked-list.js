@@ -28,6 +28,16 @@ class LinkedList {
     }
   }
 
+  prepend(value) {
+    const newElement = { value: value, next: this.head };
+
+    this.head = newElement;
+
+    if (!this.tail) {
+      this.tail = newElement;
+    }
+  }
+
   toArray() {
     const elements = [];
 
@@ -47,5 +57,7 @@ const linkedList = new LinkedList();
 linkedList.append(1);
 linkedList.append("s");
 linkedList.append(true);
+
+linkedList.prepend("first value");
 
 console.log(linkedList.toArray());
