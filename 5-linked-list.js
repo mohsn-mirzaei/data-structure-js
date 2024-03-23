@@ -14,6 +14,19 @@ class LinkedList {
     this.head = null;
     this.tail = null;
   }
+
+  append(value) {
+    const newElement = { value: value, next: null };
+
+    if (this.tail) {
+      this.tail.next = newElement;
+    }
+    this.tail = newElement;
+
+    if (!this.head) {
+      this.head = newElement;
+    }
+  }
 }
 
 const linkedList = new LinkedList();
