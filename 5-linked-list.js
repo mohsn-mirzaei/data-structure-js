@@ -38,6 +38,30 @@ class LinkedList {
     }
   }
 
+  delete(value) {
+    if (!this.head) {
+      return;
+    }
+
+    while (this.head && this.head.value === value) {
+      this.head = this.head.next;
+    }
+
+    let currentElement = this.head;
+
+    while (currentElement.next) {
+      if (currentElement.next.value === value) {
+        currentElement.next = currentElement.next.next;
+      } else {
+        currentElement = currentElement.next;
+      }
+    }
+
+    if (this.tail.value === value) {
+      this.tail = currentElement;
+    }
+  }
+
   toArray() {
     const elements = [];
 
@@ -56,8 +80,14 @@ const linkedList = new LinkedList();
 
 linkedList.append(1);
 linkedList.append("s");
+linkedList.append("s");
 linkedList.append(true);
 
 linkedList.prepend("first value");
+linkedList.prepend("first value");
+
+linkedList.delete("s");
+linkedList.delete("first value");
+linkedList.delete(true);
 
 console.log(linkedList.toArray());
